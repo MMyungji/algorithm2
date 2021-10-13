@@ -2,6 +2,7 @@ def dfs(queen, row, n):
     count = 0
     # (체스판 8 * 8 기준) 마지막 줄까지 퀸을 놓은 경우(총 8개 놓음) 가능한 경우이므로 true(1) 리턴
     if n == row:
+        print(f"queen: {queen}")
         return 1
 
     for col in range(n):
@@ -18,8 +19,11 @@ def dfs(queen, row, n):
         # 다음위치로 이동한다.
         else:
             count += dfs(queen, row + 1, n)
+    print(f"q: {queen}, c: {count}")
     return count
 
 
 def solution(n):
     return dfs([0] * n, 0, n)
+
+print(solution(4))
